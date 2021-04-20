@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
+	<meta name="description" content="Os livros são abelhas que levam o pólen de uma inteligência a outra. [James Russell Lowell]">
+	<meta name="author" content="Vanderclin Rocha">
+	
+	<!-- Disable tap highlight on IE -->
+	<meta name="msapplication-tap-highlight" content="no">
+
+	<!-- Web Application Manifest -->
+	<link rel="manifest" href="manifest.json">
+
+	<!-- Add to homescreen for Safari on iOS -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="apple-mobile-web-app-title" content="Mega Library">
+	<meta name="apple-mobile-web-app-status-bar-style" content="#01837F">
+	<link rel="apple-touch-icon" sizes="57x57" href="../assets/content/apple/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="../assets/content/apple/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../assets/content/apple/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../assets/content/apple/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../assets/content/apple/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../assets/content/apple/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../assets/content/apple/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../assets/content/apple/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../assets/content/apple/apple-icon-180x180.png">
+
+	<!-- Add to homescreen for Chrome on Android -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="application-name" content="Mega Library">
+	<meta name="theme-color" content="#01837F">
+	<link rel="icon" type="image/png" sizes="192x192"  href="../assets/content/android/android-icon-192x192.png">
+
+	<!-- Icons -->
+	<link rel="icon" type="image/png" sizes="32x32" href="../assets/content/icon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../assets/content/icon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../assets/content/icon/favicon-16x16.png">
+	<link rel="icon" href="../assets/content/icon/favicon.ico">
+
+	<!-- Tile icon for Win8 -->
+	<meta name="msapplication-TileColor" content="#01837F">
+	<meta name="msapplication-navbutton-color" content="#01504e">
+	<meta name="msapplication-TileImage" content="../assets/content/microsoft/ms-icon-144x144.png">
+	  
+	<title>Mega Library</title>
+
+    <link href="../css/bootstrap.css" rel="stylesheet">
+	<link href="../css/customization.css" rel="stylesheet">
+	<link href="../css/Chart.css" rel="stylesheet">
+	  
+	<script data-ad-client="ca-pub-8199467179911567" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  </head>
+  <body oncontextmenu="return true" ondragstart="return false" onselectstart="return false">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-purple">
+	  <div class="container-fluid">
+		<div class="me-1 hide" id="menu-hamb" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-expanded="false">
+		  <div class="animated-icon ms-auto">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		  </div>
+		</div>
+		
+		<a class="navbar-brand me-auto" href="#">Karinna Lima</a>
+		
+		<span class="ms-auto me-1" id="navbar-name"></span>
+		<div class="dropdown">
+		  <img class="navbar-avatar" src="../assets/images/logo.png" id="dropdownAvatar" data-bs-toggle="dropdown">
+		  <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="dropdownAvatar">
+			<li class="mb-1"><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal-profile">Perfil</a></li>
+			<hr class="divider">
+			<li class="mt-1 mb-1"><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal_settings">Configurações</a></li>
+			<hr class="divider">
+			<li class="mt-1"><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal-signout">Sair</a></li>
+		  </ul>
+		</div>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		  <form class="d-flex">
+			<input class="form-control mt-2" id="search_bar" type="text" placeholder="Procurar" aria-label="Search">
+		  </form>
+		</div>
+	  </div>
+	</nav>
+	
+	<div class="container">
+	  <div class="input-group m-auto mt-3 mb-3 hide">
+		<input type="text" class="form-control" id="book_search" placeholder="Procurar"/>
+	  </div>
+	  <div class="justify-content-center row" id="content-books"></div>
+	</div>
+	<div class="floating-action-button hide" role="group" aria-label="Floating Action Button" id="floatingActionButton">
+	  <div>
+		<button class="btn btn-fab" data-bs-toggle="modal" data-bs-target="#modal_add"><img class="img-fluid" src="../assets/icons/icon_plus.png"></button>
+	  </div>
+	</div>
+	<!-- Modal's -->
+
+	<!-- Modal Profile -->
+	<div class="modal fade" id="modal-profile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered px-3">
+		<div class="modal-content">
+		  <div class="modal-body">
+			<div class="account">
+			  <div class="account-images">
+				<img class="account-images-a" id="modal-account-image" src="../assets/images/logo.png">
+				<img class="account-images-b" id="modal-account-check" data-bs-toggle="collapse" data-bs-target="#modal-account-check-collapse" src="../assets/icons/user_error.png">
+			  </div>
+			  <div class="collapse" id="modal-account-check-collapse">
+				<h6 class="text-center small" id="modal-account-status">...</h6>
+			  </div>
+			  <div class="account-texts">
+				<h3 class="account-texts-a" id="modal-account-name">Username</h3>
+				<h6 class="account-texts-b" id="modal-account-email">username@mail.com</h6>
+			  </div>
+			  <div class="account-painel mt-3">
+				<button class="btn btn-outline-marrs-green w-100 hide" id="modal-account-activation-button" onclick="accountActivation()">Ativar conta</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<!-- Modal Update Profile -->
+	<div class="modal fade" id="modal-update-profile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered modal-sm px-3">
+		<div class="modal-content">
+		  <div class="modal-body">
+			<div class="d-flex">
+			  <div class="image-avatar mx-auto">
+				<div class="image-avatar-upload">
+				  <label class="mx-auto" for="avatar">
+					<img id="avatar_view" src="../assets/images/logo.png" />
+				  </label>
+				  <input class="item-img" id="avatar" type="file" accept="image/*"/>
+				</div>
+			  </div>
+			</div>
+			<div class="justify-content-center text-center">
+			  <h6 class="" id="percentage"></h6>
+			</div>
+			<div class="input-group mt-3 mb-3">
+			  <input type="text" class="form-control" placeholder="Nome do usuário" aria-label="E-mail" id="avatar-name">
+			</div>
+			<button class="btn btn-outline-marrs-green w-100" onclick="updateProfile()">Atualizar</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<!-- Modal Add -->
+	<div class="modal fade" id="modal_add" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered modal-sm px-3">
+		<div class="modal-content">
+		  <div class="modal-body">
+			<div class="d-flex">
+			  <div class="image-preview mx-auto">
+				<div class="image-preview-upload">
+				  <label for="book_image">
+					<img id="book_image_preview" src="../assets/images/cover.png" />
+				  </label>
+				  <input id="book_image" type="file" accept="image/*" />
+				</div>
+			  </div>
+			</div>
+			<div class="input-group m-auto mt-1 mb-1">
+			  <input type="text" class="form-control" id="book_name" placeholder="Nome do livro"/>
+			</div>
+			<div class="input-group m-auto mt-1 mb-1">
+			  <input type="text" class="form-control" id="book_author" placeholder="Nome do autor">
+			</div>
+			<div class="input-group m-auto mt-1 mb-1">
+			  <input type="url" class="form-control" id="book_url" placeholder="Link compartilhado">
+			</div>
+			<div class="form-floating m-auto mt-1 mb-1">
+			  <textarea class="form-control h-100" placeholder="Descrição do produto" id="book_description"></textarea>
+			  <label class="text-muted" for="book_description">Descrição do produto</label>
+			</div>
+			<div class="progress m-auto mt-1 mb-1">
+			  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+			</div>
+		  </div>
+
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-outline-marrs-green" data-bs-dismiss="modal">Cancelar</button>
+			<button type="button" class="btn btn-outline-marrs-green" id="publish_post">Publicar</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<!-- Modal SignOut -->
+	<div class="modal fade" id="modal-signout" data-bs-backdrop="static" data-bs-keyboard="false"   tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered modal-sm px-3">
+		<div class="modal-content">
+		  <div class="modal-body">
+			<h6 class="text-center">Você deseja realmente sair?</h6>
+			<div class="w-100">
+			  <button class="btn btn-outline-marrs-green w-49" data-bs-dismiss="modal">Não</button>
+			  <button class="btn btn-outline-marrs-green w-49" id="modal-button-signout">Sim</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<!-- Modal Content Book -->
+	<div class="modal fade" id="modal-content-book" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered px-3">
+		<div class="modal-content">
+		  <div class="modal-body">
+			<div class="panel-box">
+			  <div class="panel-box-left">
+				<img class="image-content-book mx-auto" src="../assets/images/cover.png" id="b_image">
+			  </div>
+			  <div class="panel-box-right">
+				<div class="panel-box-right-inside">
+				  <h5 id="b_name"></h5>
+				  <h6 id="b_author"></h6>
+				  <div class="scroll">
+					<p class="lead" id="b_description"></p>
+				  </div>
+				</div>
+			  </div>
+			</div>
+			<div class="d-flex mb-2">
+			  <span class="ms-auto w-50 mx-1 badge rounded-pill bg-purple"><i class="bi bi-eye"></i><b class="ms-1" id="b_views">0</b></span>
+			  <span class="ms-auto w-50 mx-1 badge rounded-pill bg-purple"><i class="bi bi-cloud-arrow-down"></i>‎<b class="ms-1" id="b_download_number">0</b></span>
+			</div>
+			<hr>
+			<div id="b_download">
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<!-- Modal Presentation -->
+	<div class="modal fade" id="modal_presentation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered modal-sm px-3">
+		<div class="modal-content">
+		  <div class="modal-body">
+			<div class="mb-3 text-center">
+			  <h1>Olá! 😊</h1>
+			  <p class="lead">Hoje é o seu primeiro dia e estamos muito felizes em tê-lo na nossa equipe de leitores.<br>Seja bem-vindo e vamos juntos compartilhar!</p>
+			</div>
+			<button class="btn btn-outline-marrs-green w-100" data-bs-dismiss="modal" onclick="setTrue()">OK</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+	<!-- Modal Settings -->
+	<div class="modal fade" id="modal_settings" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered modal-sm px-3">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h3 class="modal-title">Configurações</h3>
+		  </div>
+		  <div class="modal-body">
+			<div class="switch-panel">
+			  <div class="switch-panel-left">
+				<h3>Excluir minha conta</h3>
+			  </div>
+			  <div class="switch-panel-right">
+				<label class="switch" for="deleteaccount">
+				  <input type="checkbox" id="deleteaccount" />
+				  <div class="slider round"></div>
+				</label>
+			  </div>
+			  <div class="switch-panel-bottom">
+				<button class="btn btn-outline-marrs-green w-100" disabled id="delete_account" onclick="accountDelete()">Excluir</button>
+			  </div>
+			</div>
+
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+	<!-- Toasts -->
+	<div class="toast bg-dark mx-auto my-3 fixed-bottom" id="alert-message" data-bs-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
+	  <div class="toast-body text-center">
+		<span id="message"></span>
+	  </div>
+	</div>
+
+	<script src="../js/vendor/jquery-3.5.1.slim.min.js"></script>
+	<script src="../js/vendor/Chart.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/customization.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-storage.js"></script>
+	<script src="../js/firebase/firebase-home.js"></script>
+  </body>
+</html>		

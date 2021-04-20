@@ -1,0 +1,22 @@
+{
+  "version": "1.0.0",
+  "name": "Mega Library",
+  "launch_path": "/index.html",
+  "description": "Os livros são abelhas que levam o pólen de uma inteligência a outra. [James Russell Lowell]",
+  "developer": {
+    "name": "Vanderclin Rocha",
+    "url": "https://github.com/Vanderclin"
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "pt",
+  "permissions": {
+  },
+  "locales": {
+    "pt": {
+      "name": "Mega Library",
+  "description": "Os livros são abelhas que levam o pólen de uma inteligência a outra. [James Russell Lowell]"
+    }
+  }
+}
