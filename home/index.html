@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
-	<meta name="description" content="Os livros são abelhas que levam o pólen de uma inteligência a outra. [James Russell Lowell]">
+	<meta name="description" content="">
 	<meta name="author" content="Vanderclin Rocha">
 	
 	<!-- Disable tap highlight on IE -->
@@ -16,7 +16,7 @@
 	<!-- Add to homescreen for Safari on iOS -->
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	<meta name="apple-mobile-web-app-title" content="Mega Library">
+	<meta name="apple-mobile-web-app-title" content="Khally Crochetaria">
 	<meta name="apple-mobile-web-app-status-bar-style" content="#01837F">
 	<link rel="apple-touch-icon" sizes="57x57" href="../assets/content/apple/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="../assets/content/apple/apple-icon-60x60.png">
@@ -30,7 +30,7 @@
 
 	<!-- Add to homescreen for Chrome on Android -->
 	<meta name="mobile-web-app-capable" content="yes">
-	<meta name="application-name" content="Mega Library">
+	<meta name="application-name" content="Khally Crochetaria">
 	<meta name="theme-color" content="#01837F">
 	<link rel="icon" type="image/png" sizes="192x192"  href="../assets/content/android/android-icon-192x192.png">
 
@@ -38,14 +38,14 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="../assets/content/icon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="96x96" href="../assets/content/icon/favicon-96x96.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="../assets/content/icon/favicon-16x16.png">
-	<link rel="icon" href="../assets/content/icon/favicon.ico">
+	<link rel="icon" href="../assets/images/logo.png">
 
 	<!-- Tile icon for Win8 -->
 	<meta name="msapplication-TileColor" content="#01837F">
 	<meta name="msapplication-navbutton-color" content="#01504e">
 	<meta name="msapplication-TileImage" content="../assets/content/microsoft/ms-icon-144x144.png">
 	  
-	<title>Mega Library</title>
+	<title>Khally Crochetaria</title>
 
     <link href="../css/bootstrap.css" rel="stylesheet">
 	<link href="../css/customization.css" rel="stylesheet">
@@ -66,7 +66,7 @@
 		  </div>
 		</div>
 		
-		<a class="navbar-brand me-auto" href="#">Karinna Lima</a>
+		<a class="navbar-brand me-auto" href="#">Khally Crochetaria</a>
 		
 		<span class="ms-auto me-1" id="navbar-name"></span>
 		<div class="dropdown">
@@ -91,7 +91,11 @@
 	  <div class="input-group m-auto mt-3 mb-3 hide">
 		<input type="text" class="form-control" id="book_search" placeholder="Procurar"/>
 	  </div>
-	  <div class="justify-content-center row" id="content-books"></div>
+	  <main>
+		<div class="row row-cols-1 row-cols-md-3 mb-3 text-center" id="content-books"></div>
+	  
+	  
+	  </main>
 	</div>
 	<div class="floating-action-button hide" role="group" aria-label="Floating Action Button" id="floatingActionButton">
 	  <div>
@@ -159,25 +163,23 @@
 			<div class="d-flex">
 			  <div class="image-preview mx-auto">
 				<div class="image-preview-upload">
-				  <label for="book_image">
-					<img id="book_image_preview" src="../assets/images/cover.png" />
+				  <label for="product_image">
+					<img id="product_image_preview" src="../assets/images/cover.webp" />
 				  </label>
-				  <input id="book_image" type="file" accept="image/*" />
+				  <input id="product_image" type="file" accept="image/*" />
 				</div>
 			  </div>
 			</div>
-			<div class="input-group m-auto mt-1 mb-1">
-			  <input type="text" class="form-control" id="book_name" placeholder="Nome do livro"/>
+			<div class="input-group m-auto mt-1">
+			  <input type="text" class="form-control" id="product_name" placeholder="Nome do produto"/>
 			</div>
 			<div class="input-group m-auto mt-1 mb-1">
-			  <input type="text" class="form-control" id="book_author" placeholder="Nome do autor">
-			</div>
-			<div class="input-group m-auto mt-1 mb-1">
-			  <input type="url" class="form-control" id="book_url" placeholder="Link compartilhado">
+			  <input type="number" class="form-control" id="product_price" placeholder="000" aria-label="value" aria-describedby="basic-addon2">
+			  <span class="input-group-text" id="base_price">R$ 0,00</span>
 			</div>
 			<div class="form-floating m-auto mt-1 mb-1">
-			  <textarea class="form-control h-100" placeholder="Descrição do produto" id="book_description"></textarea>
-			  <label class="text-muted" for="book_description">Descrição do produto</label>
+			  <textarea class="form-control h-100" placeholder="Descrição do produto" id="product_description"></textarea>
+			  <label class="text-muted text-dark" for="product_description">Descrição do produto</label>
 			</div>
 			<div class="progress m-auto mt-1 mb-1">
 			  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
@@ -200,36 +202,6 @@
 			<div class="w-100">
 			  <button class="btn btn-outline-marrs-green w-49" data-bs-dismiss="modal">Não</button>
 			  <button class="btn btn-outline-marrs-green w-49" id="modal-button-signout">Sim</button>
-			</div>
-		  </div>
-		</div>
-	  </div>
-	</div>
-	<!-- Modal Content Book -->
-	<div class="modal fade" id="modal-content-book" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  <div class="modal-dialog modal-dialog-centered px-3">
-		<div class="modal-content">
-		  <div class="modal-body">
-			<div class="panel-box">
-			  <div class="panel-box-left">
-				<img class="image-content-book mx-auto" src="../assets/images/cover.png" id="b_image">
-			  </div>
-			  <div class="panel-box-right">
-				<div class="panel-box-right-inside">
-				  <h5 id="b_name"></h5>
-				  <h6 id="b_author"></h6>
-				  <div class="scroll">
-					<p class="lead" id="b_description"></p>
-				  </div>
-				</div>
-			  </div>
-			</div>
-			<div class="d-flex mb-2">
-			  <span class="ms-auto w-50 mx-1 badge rounded-pill bg-purple"><i class="bi bi-eye"></i><b class="ms-1" id="b_views">0</b></span>
-			  <span class="ms-auto w-50 mx-1 badge rounded-pill bg-purple"><i class="bi bi-cloud-arrow-down"></i>‎<b class="ms-1" id="b_download_number">0</b></span>
-			</div>
-			<hr>
-			<div id="b_download">
 			</div>
 		  </div>
 		</div>
@@ -286,7 +258,6 @@
 	</div>
 
 	<script src="../js/vendor/jquery-3.5.1.slim.min.js"></script>
-	<script src="../js/vendor/Chart.js"></script>
 	<script src="../js/bootstrap.js"></script>
 	<script src="../js/customization.js"></script>
 

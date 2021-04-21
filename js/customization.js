@@ -9,13 +9,13 @@ function readURLTwo(input) {
 	if (input.files && input.files[0]) {
 		var reader = new FileReader();
 		reader.onload = function (f) {
-			$("#book_image_preview").attr("src", f.target.result);
+			$("#product_image_preview").attr("src", f.target.result);
 		};
 		reader.readAsDataURL(input.files[0]);
 	}
 }
 
-$("#book_image").change(function () {
+$("#product_image").change(function () {
 	readURLTwo(this);
 });
 
@@ -78,3 +78,29 @@ $(document).ready(function () {
     $('.animated-icon').toggleClass('open');
   });
 });
+
+function mascara(v) {
+	v = v.replace(/\D/g, "");
+	v = new String(Number(v));
+	var len = v.length;
+	if (1 == len)
+		v = v.replace(/(\d)/, "0,0$1");
+	else if (2 == len)
+		v = v.replace(/(\d)/, "0,$1");
+	else if (len > 2)
+	{
+		v = v.replace(/(\d{2})$/, ',$1');
+		if (len > 5)
+		{
+			var x = len - 5,
+				er = new RegExp('(\\d{' + x + '})(\\d)');
+			v = v.replace(er, '$1.$2');
+		}
+	}
+	return v;
+}
+
+var price = document.getElementById('product_price');
+price.onkeyup = function(){
+	document.getElementById('base_price').innerText = "R$ " + mascara( price.value);
+};
