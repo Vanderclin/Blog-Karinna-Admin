@@ -247,5 +247,5 @@ $(document).ready(function () {
 
 function deleteItem(key) {
 	firebase.database().ref('posts').remove(key);
-	
+	setTimeout(function(){ window.location.reload(); }, 1000);
 }
