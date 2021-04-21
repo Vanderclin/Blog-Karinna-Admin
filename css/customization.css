@@ -227,23 +227,6 @@ body {
   color: #fff;
 }
 
-.error {
-  display: table;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-}
-
-.error-center {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.error-center h1{
-  font-size: 50px;
-  display: inline-block;
-}
-
 .form {
   margin: auto;
   max-width: 330px;
@@ -604,4 +587,43 @@ input:checked + .slider:before {
   margin-top: 5rem;
   margin-bottom: 1.5rem !important;
   width: 100%;
+}
+
+.jumping-img {
+  height: 90px;
+  width: 90px;
+}
+.jumping-top {
+  margin-top: 50%;
+}
+
+.jumping-dots span {
+  position: relative;
+  bottom: 0px;
+  -webkit-animation: jump 1500ms infinite;
+  animation: jump 2s infinite;
+}
+.jumping-dots .dot-1{
+  -webkit-animation-delay: 200ms;
+  animation-delay: 200ms;
+}
+.jumping-dots .dot-2{
+  -webkit-animation-delay: 400ms;
+  animation-delay: 400ms;
+}
+.jumping-dots .dot-3{
+  -webkit-animation-delay: 600ms;
+  animation-delay: 600ms;
+}
+
+@-webkit-keyframes jump {
+  0%   {bottom: 0px;}
+  20%  {bottom: 5px;}
+  40%  {bottom: 0px;}
+}
+
+@keyframes jump {
+  0%   {bottom: 0px;}
+  20%  {bottom: 5px;}
+  40%  {bottom: 0px;}
 }
