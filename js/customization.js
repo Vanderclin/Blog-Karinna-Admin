@@ -19,16 +19,6 @@ $("#product_image").change(function () {
 	readURLTwo(this);
 });
 
-
-function accountSignIn() {
-	document.getElementById("main-signin").style.display = "block";
-	document.getElementById("main-signup").style.display = "none";
-}
-
-function accountSignUp() {
-	document.getElementById("main-signin").style.display = "none";
-	document.getElementById("main-signup").style.display = "block";
-}
 /**************************************************************************************/
 function readURL(input) {
 	if (input.files && input.files[0]) {
