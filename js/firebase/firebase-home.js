@@ -173,7 +173,7 @@ $(document).ready(function () {
 		card += '<span class="ms-auto text-right">R$ '+mascara(snapshot.child('pp').val())+'</span>';
 		card += '</div>';
 		card += '<p class="mt-3 text-start">'+snapshot.child('pd').val() +'</p>';
-		card += '<button href="#" class="btn btn-outline-marrs-green float-end" id"'+snapshot.child('pk').val() +'"  onClick="deleteItem(this.id)">Comprar</button>';
+		card += '<button href="#" class="btn btn-outline-marrs-green float-end" id"'+snapshot.child('pk').val() +'"  onClick="deleteItem(this.id)">Excluir</button>';
 		card += '</div>';
 		card += '</div>';
 		card += '</div>';
