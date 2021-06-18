@@ -164,31 +164,12 @@ function currentDate(){
         dayF = (day.length == 1) ? '0'+day : day,
         month  = (data.getMonth()+1).toString(), //+1 pois no getMonth Janeiro começa com zero.
         monthF = (month.length == 1) ? '0'+month : month,
-        yearF = data.getFullYear();
-    return dayF+"/"+monthF+"/"+yearF;
+        yearF = data.getFullYear(),
+        hours = data.getHours(),
+        minutes = data.getMinutes(),
+        seconds = data.getSeconds();
+    return yearF+monthF+dayF+hours+minutes+seconds;
 }
-
-function currentTime() {
-    var date_ob = new Date();
-    // adjust 0 before single digit date
-    var date = ("0" + date_ob.getDate()).slice(-2);
-    // current month
-    var month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
-    // current year
-    var year = date_ob.getFullYear();
-    // current hours
-    var hours = date_ob.getHours();
-    // current minutes
-    var minutes = date_ob.getMinutes();
-    //current seconds
-    var seconds = date_ob.getSeconds();
-    return(year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds);
-}
-
-
-
-
-
 
 $(document).ready(function () {
 
@@ -262,7 +243,7 @@ $(document).ready(function () {
 					pk: product_key,
 					p_un: user_name,
 					p_up: user_photo,
-                    p_date: currentTime()
+                    p_date: currentDate()
 					
 				});
 			});
