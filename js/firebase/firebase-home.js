@@ -158,7 +158,15 @@ function updateProfile() {
 }
 
 
-
+function currentDate(){
+    var data = new Date(),
+        day  = data.getDate().toString(),
+        dayF = (day.length == 1) ? '0'+day : day,
+        month  = (data.getMonth()+1).toString(), //+1 pois no getMonth Janeiro começa com zero.
+        monthF = (month.length == 1) ? '0'+month : month,
+        yearF = data.getFullYear();
+    return dayF+"/"+monthF+"/"+yearF;
+}
 
 $(document).ready(function () {
 
@@ -230,7 +238,8 @@ $(document).ready(function () {
 					pd: product_description,
 					pk: product_key,
 					p_un: user_name,
-					p_up: user_photo
+					p_up: user_photo,
+                    p_date: currentDate()
 					
 				});
 			});
@@ -244,6 +253,9 @@ $(document).ready(function () {
 	});
 
 });
+
+
+
 
 function deleteItem(key) {
 	firebase.database().ref('posts').remove(key);
